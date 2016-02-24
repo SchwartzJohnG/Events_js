@@ -1,0 +1,35 @@
+<html>
+
+<head>
+  <style>
+    img {
+      position: absolute;
+      width: 80px;
+      height: 80px;
+    }
+  </style>
+  <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+  <script src="https://cdn.rawgit.com/zeebo404/curry.js/master/curry.js"></script>
+</head>
+<body>
+  <img id="elephant" src="http://www.i2clipart.com/cliparts/5/5/3/7/clipart-2d-cartoon-elephant-5537.png" />
+  <img id="jquery-elephant" src="http://www.i2clipart.com/cliparts/5/5/3/7/clipart-2d-cartoon-elephant-5537.png"/>
+  <script>
+    document.getElementById('elephant').addEventListener('mouseenter', function(e) {
+      var x = Math.floor(window.innerWidth * Math.random());
+      var y = Math.floor(window.innerHeight * Math.random());
+      e.currentTarget.style.left = x + 'px';
+      e.currentTarget.style.top = y + 'px';
+    });
+
+  //$('#jquery-elephant').mouseenter(....
+    $('#jquery-elephant').on('mouseenter', function(e) {
+      var img = $(e.currentTarget);
+      var x = Math.floor(window.innerWidth * Math.random());
+      var y = Math.floor(window.innerHeight * Math.random());
+      img.css('left', x + 'px');
+      img.css('top', y + 'px');
+    });
+  </script>
+</body>
+</html>
